@@ -69,7 +69,7 @@ cp .env.example .env
 | Variable | Description | Default |
 |---|---|---|
 | `PORT` | HTTP/Socket.IO port | `5000` |
-| `CLIENT_URL` | Allowed CORS origin (Express **and** Socket.IO) | `http://localhost:5173` |
+| `CLIENT_URL` | Allowed CORS origin(s) (Express **and** Socket.IO). Comma-separated for multiple — e.g. local dev + a deployed frontend. Trailing slashes are stripped automatically. | `http://localhost:5173` |
 | `NODE_ENV` | `development` \| `test` \| `production` | `development` |
 | `CHAT_PRIMARY_COLOR` | Chat theme primary color | `#2563EB` |
 | `CHAT_SECONDARY_COLOR` | Chat theme secondary color | `#EFF6FF` |
