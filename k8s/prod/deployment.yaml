@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend-prod
+  namespace: chat-prod
+  labels:
+    app: backend
+    env: prod
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: backend
+      env: prod
+  template:
+    metadata:
+      labels:
+        app: backend
+        env: prod
+    spec:
+      containers:
+        - name: backend
+          image: ghcr.io/mdarifahammedreza/simpleChatserver-backend:prod-latest
+          ports:
+            - containerPort: 5000
+          env:
+            - name: NODE_ENV
+              value: "production"
+          resources:
+            requests:
+              cpu: "100m"
+              memory: "128Mi"
+            limits:
+              cpu: "500m"
+              memory: "512Mi"
